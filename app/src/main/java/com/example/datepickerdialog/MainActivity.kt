@@ -8,7 +8,7 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var datePicker: DatePicker
+    private lateinit var datePicker: DatePicker
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,10 +20,10 @@ class MainActivity : AppCompatActivity() {
             today.get(Calendar.YEAR),
             today.get(Calendar.MONTH),
             today.get(Calendar.DAY_OF_MONTH)
-        ) { view, year, month, day ->
+        ) { _, year, month, day ->
 
             val month = month + 1
-            var message = "You have selected $day/$month/$year"
+            val message = "You have selected $day/$month/$year"
 
             Toast.makeText(this, message, Toast.LENGTH_LONG).show()
         }
